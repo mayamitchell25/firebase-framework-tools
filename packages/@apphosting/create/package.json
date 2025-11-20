@@ -33,12 +33,18 @@
     ],
     "license": "Apache-2.0",
     "dependencies": {
-        "@inquirer/prompts": "^5.0.2",
+        "@angular-devkit/build-angular": "19.2.19",
+        "@inquirer/prompts": "^8.0.1",
         "@npmcli/promise-spawn": "^7.0.2",
+        "@sveltejs/kit": "2.48.5",
         "commander": "^11.1.0",
+        "cookie": "1.0.2",
         "giget": "^1.2.3",
+        "lerna": "6.6.2",
+        "next": "15.5.6",
         "ora": "^8.0.1",
-        "tslib": "^2.3.1"
+        "tslib": "^2.3.1",
+        "verdaccio": "6.2.1"
     },
     "devDependencies": {
         "@types/commander": "*",

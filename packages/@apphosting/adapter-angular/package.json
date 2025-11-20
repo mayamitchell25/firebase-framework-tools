@@ -43,9 +43,14 @@
   ],
   "license": "Apache-2.0",
   "dependencies": {
+    "@angular-devkit/build-angular": "19.2.19",
     "@apphosting/common": "*",
+    "@sveltejs/kit": "2.48.5",
+    "cookie": "1.0.2",
     "firebase-functions": "^4.3.1",
     "fs-extra": "^11.1.1",
+    "lerna": "6.6.2",
+    "next": "15.5.6",
     "strip-ansi": "^7.1.0",
     "tslib": "^2.3.1",
     "yaml": "^2.3.4",
@@ -76,6 +81,6 @@
     "ts-mocha": "*",
     "ts-node": "*",
     "typescript": "*",
-    "verdaccio": "^5.30.3"
+    "verdaccio": "^6.2.1"
   }
 }

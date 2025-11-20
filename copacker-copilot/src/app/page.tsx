@@ -1,69 +1,74 @@
-import Card from "@/components/Card";
-import { ArrowRight, MessageSquare, Briefcase, CheckCircle, Users } from 'lucide-react';
 
-const page = () => {
+import { KpiCard } from "@/components/dashboard/kpi-card";
+import { ProjectProgress } from "@/components/dashboard/project-progress";
+import { RecentActivity } from "@/components/dashboard/recent-activity";
+import { ConversationTracker } from "@/components/dashboard/conversation-tracker";
+import { AiCopilotSummary } from "@/components/dashboard/ai-copilot-summary";
+import {
+  Briefcase,
+  TrendingUp,
+  Zap,
+  FileText,
+  BarChart2,
+  Flag,
+} from "lucide-react";
+
+export default function DashboardPage() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-4">Dashboard</h1>
-      <h2 className="text-xl font-semibold mb-2">At a Glance</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <Card title="Active Projects" value="12" icon={<Briefcase />} />
-        <Card title="Co-Packer Responses" value="8" icon={<MessageSquare />} />
-        <Card title="New Matches" value="5" icon={<Users />} />
-        <Card title="Launch Success Rate" value="92%" icon={<CheckCircle />} />
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div>
-          <h2 className="text-xl font-semibold mb-2">Recent Activity</h2>
-          <div className="space-y-4">
-            <div className="bg-white p-4 rounded-lg shadow flex justify-between items-center">
-              <div>
-                <p className="font-semibold">New co-packer match for Project Sunrise</p>
-                <p className="text-sm text-gray-500">2 hours ago</p>
-              </div>
-              <ArrowRight />
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow flex justify-between items-center">
-              <div>
-                <p className="font-semibold">Proposal received from Gourmet Foods Inc.</p>
-                <p className="text-sm text-gray-500">1 day ago</p>
-              </div>
-              <ArrowRight />
-            </div>
+    <div className="relative flex min-h-screen">
+      <div className="flex-1 space-y-6 pr-6">
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">At a Glance</h2>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <KpiCard
+              title="Active Projects"
+              metric="12"
+              icon={<Briefcase className="h-4 w-4 text-muted-foreground" />}
+            />
+            <KpiCard
+              title="Negotiations in Progress"
+              metric="4"
+              icon={<TrendingUp className="h-4 w-4 text-muted-foreground" />}
+            />
+            <KpiCard
+              title="Regulatory Red Flags"
+              metric="1"
+              icon={<Flag className="h-4 w-4 text-muted-foreground" />}
+            />
+            <KpiCard
+              title="New Matches"
+              metric="3"
+              icon={<Zap className="h-4 w-4 text-muted-foreground" />}
+            />
+            <KpiCard
+              title="Launch Success Rate"
+              metric="92%"
+              icon={<BarChart2 className="h-4 w-4 text-muted-foreground" />}
+            />
+            <KpiCard
+              title="Feasibility Score Average"
+              metric="8.1"
+              icon={<FileText className="h-4 w-4 text-muted-foreground" />}
+            />
           </div>
-        </div>
-        <div>
-          <h2 className="text-xl font-semibold mb-2">Conversation Tracker</h2>
-          <div className="space-y-4">
-            <div className="bg-white p-4 rounded-lg shadow">
-              <div className="flex justify-between items-center">
-                <p className="font-semibold">Flavor-Fiesta</p>
-                <p className="text-sm text-gray-600">Project Sunset</p>
-                <span className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Replied</span>
-                <p className="text-sm text-gray-500">1 day ago</p>
-              </div>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow">
-              <div className="flex justify-between items-center">
-                <p className="font-semibold">Taste-Trek</p>
-                <p className="text-sm text-gray-600">Project Moonrise</p>
-                <span className="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Awaiting Reply</span>
-                <p className="text-sm text-gray-500">2 weeks ago</p>
-              </div>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow">
-              <div className="flex justify-between items-center">
-                <p className="font-semibold">Nature-Nosh</p>
-                <p className="text-sm text-gray-600">Project Daybreak</p>
-                <span className="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Follow-up Needed</span>
-                <p className="text-sm text-gray-500">1 month ago</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
+        </section>
 
-export default page
+        <section>
+          <ProjectProgress />
+        </section>
+
+        <section>
+          <RecentActivity />
+        </section>
+
+        <section>
+          <ConversationTracker />
+        </section>
+      </div>
+
+      <aside className="w-1/4 sticky top-6 self-start">
+        <AiCopilotSummary />
+      </aside>
+    </div>
+  );
+}

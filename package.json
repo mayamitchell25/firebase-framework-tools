@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "dev": "cd copacker-copilot && npx next dev",
     "build": "./scripts/build.js",
     "build:watch": "lerna watch -- lerna run build",
     "test": "./scripts/test.js",
@@ -16,7 +17,7 @@
     "packages/firebase-frameworks"
   ],
   "devDependencies": {
-    "@angular-devkit/build-angular": "^17.1.2",
+    "@angular-devkit/build-angular": "^19.2.19",
     "@types/mocha": "*",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "eslint": "^8.53.0",
@@ -24,11 +25,16 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-jsdoc": "^46.8.2",
     "eslint-plugin-prettier": "^5.0.1",
-    "lerna": "^7.4.0",
+    "lerna": "^6.6.2",
     "mocha": "^10.2.0",
     "prettier": "^3.0.3",
     "ts-mocha": "^10.0.0",
     "typescript": "^5.2.0",
     "zod": "^3.22.4"
+  },
+  "dependencies": {
+    "@sveltejs/kit": "2.48.5",
+    "cookie": "1.0.2",
+    "next": "15.5.6"
   }
 }
